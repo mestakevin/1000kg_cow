@@ -54,7 +54,22 @@ def test_function():
 
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
+    
+    while position[1] > 0.0:
+ 	
+ 	f_tot = tot_force_vec(velocity,mass,g,wind_res_cons)
+ 	velocity, position = curr_pos_vel_calc(position,velocity,f_tot,mass,dt)
+ 	eng_kinetic, eng_poten, eng_tot = eng_calculator(position,velocity,mass,g)
+ 		
+ 	pos_list.append(position)
+ 	vel_list.append(velocity)
+ 	eng_list.append(eng_tot)
+ 	time_list.append(time)
+ 		
+ 	time += dt
+ 	return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
 ##-----------------------------------------------------------------------##
-
+test_function()
+##-----------------------------------------------------------------------##
 
 
