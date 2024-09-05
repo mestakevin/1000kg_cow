@@ -3,7 +3,18 @@
 import numpy as np
 import matplotlib as plt
 
-
+##-----------------------------------------------------------------##
+def eng_calculator(position,velocity,mass,g):
+    #KE=0.5*m*v^2
+    eng_kinetic = 0.5 * mass * np.sum(velocity**2)
+    
+    #PE=m*g*h
+    eng_poten = mass * g * position[1]
+    
+    #E=KE+PE
+    eng_tot = eng_kinetic + eng_poten
+    
+    return eng_kinetic, eng_poten, eng_tot
 ##-----------------------------------------------------------------##
 def curr_pos_vel_calc(position,velocity,f_tot,mass,dt):
     #f=ma
