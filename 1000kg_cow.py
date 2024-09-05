@@ -72,4 +72,12 @@ def test_function():
 test_function()
 ##-----------------------------------------------------------------------##
 
+#input:
+#   pos_cow = a list with the x and y coordinates of the cow
+#   vel_cow = a list with the Vx and Vy velocities of the cow
+#output
+#   tot_force_vec = a list with the force of 
+def calc_total_force(pos_cow, vel_cow)
+    tot_force_vec = [0,0]
+    return tot_force_vec
 
