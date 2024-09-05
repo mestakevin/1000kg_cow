@@ -45,39 +45,42 @@ def tot_force_vec(velocity,mass,g,wind_res_cons):
 def test_function():
     #Inital conditions
     mass          = 1000 	#kg
-    grav          = 9.8 	#m/s^2
+    g             = 9.8 	#m/s^2
     init_pos_cow  = [0,100] 
     init_vel_cow  = [10,10]
-    wind_res_cons = 0.01
-    time	  = 0.0
-    dt            = 0.1
+    wind_res_cons = 0.0
+    time	      = 0.0
+    dt            = 0.01
 
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
-    
+    time_list = []
+    pos_list = []
+    vel_list = []
+    eng_list = []
     while position[1] > 0.0:
  	
- 	f_tot = tot_force_vec(velocity,mass,g,wind_res_cons)
- 	velocity, position = curr_pos_vel_calc(position,velocity,f_tot,mass,dt)
- 	eng_kinetic, eng_poten, eng_tot = eng_calculator(position,velocity,mass,g)
+ 	    f_tot = tot_force_vec(velocity,mass,g,wind_res_cons)
+ 	    velocity, position = curr_pos_vel_calc(position,velocity,f_tot,mass,dt)
+ 	    eng_kinetic, eng_poten, eng_tot = eng_calculator(position,velocity,mass,g)
  		
- 	pos_list.append(position)
- 	vel_list.append(velocity)
- 	eng_list.append(eng_tot)
- 	time_list.append(time)
+ 	    pos_list.append(position)
+ 	    vel_list.append(velocity)
+ 	    eng_list.append(eng_tot)
+ 	    time_list.append(time)
  		
- 	time += dt
- 	return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
-##-----------------------------------------------------------------------##
-test_function()
-##-----------------------------------------------------------------------##
+ 	    time += dt
+    return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
 
-#input:
-#   pos_cow = a list with the x and y coordinates of the cow
-#   vel_cow = a list with the Vx and Vy velocities of the cow
-#output
-#   tot_force_vec = a list with the force of 
-def calc_total_force(pos_cow, vel_cow)
-    tot_force_vec = [0,0]
-    return tot_force_vec
+##-----------------------------------------------------------------------##
+def display_lists(data_arr):
+
+    print("Time(s)  Position(x,y) Velocity(Vx,Vy) Energy(KE, PE, TE) ")
+    
+       
+        
+
+##-----------------------------------------------------------------------##
+print(test_function())
+##-----------------------------------------------------------------------##
 
