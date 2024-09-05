@@ -21,7 +21,7 @@ def tot_force_vec(velocity,mass,g,wind_res_cons):
 ##-----------------------------------------------------------------------##
 def test_function():
     #Inital conditions
-    mass_cow      = 1000 #kg
+    mass          = 1000 #kg
     grav          = 9.8 #m/s^2
     init_pos_cow  = [0,100] 
     init_vel_cow  = [10,10]
