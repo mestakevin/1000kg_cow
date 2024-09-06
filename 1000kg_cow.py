@@ -48,30 +48,38 @@ def test_function():
     g             = 9.8 	#m/s^2
     init_pos_cow  = [0,100] 
     init_vel_cow  = [10,10]
-    wind_res_cons = 0.0
-    time	      = 0.0
+    wind_res_cons = 1.0
+    time	  = 0.0
     dt            = 0.01
 
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
+    
     time_list = []
     pos_list = []
     vel_list = []
     eng_list = []
+    
     while position[1] > 0.0:
  	
  	    f_tot = tot_force_vec(velocity,mass,g,wind_res_cons)
  	    velocity, position = curr_pos_vel_calc(position,velocity,f_tot,mass,dt)
  	    eng_kinetic, eng_poten, eng_tot = eng_calculator(position,velocity,mass,g)
- 		
+ 	    
+ 	    print(time, '\t',position,'\t', velocity,'\t', eng_kinetic,'\t', eng_poten,'\t', eng_tot,'\n')
+ 	    	
  	    pos_list.append(position)
  	    vel_list.append(velocity)
  	    eng_list.append(eng_tot)
  	    time_list.append(time)
- 		
+ 	    
  	    time += dt
-    return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
-
+    #return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
+    
+    #for row in eng_list:
+    	#print(row)
+    	
+    	
 ##-----------------------------------------------------------------------##
 def display_lists(data_arr):
 
@@ -81,6 +89,6 @@ def display_lists(data_arr):
         
 
 ##-----------------------------------------------------------------------##
-print(test_function())
+test_function()
 ##-----------------------------------------------------------------------##
 
