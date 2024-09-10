@@ -84,11 +84,12 @@ def test_function():
 def display_lists(data_arr):
 
     print("Time(s)  Position(x,y) Velocity(Vx,Vy) Energy(KE, PE, TE) ")
-    
-       
-        
 
-##-----------------------------------------------------------------------##
+def getTrajectFile()
+    file = open("KMS_Trajectory.txt", 'w')
+
+    file.write("test")
+
 test_function()
 ##-----------------------------------------------------------------------##
 
