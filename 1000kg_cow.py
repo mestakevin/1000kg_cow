@@ -4,6 +4,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ##-----------------------------------------------------------------##
+def plot_eng_vs_time(time, eng1, eng2, eng3):
+    plt.figure()
+    plt.plot(time, eng1, marker='o', lable='eng1')
+    plt.plot(time, eng2, marker='s', lable='eng2')
+    plt.plot(time, eng3, marker='^', lable='eng3')
+    plt.show()
+##-----------------------------------------------------------------##
+def plotting(x, y):
+    plt.figure()
+    plt.plot(x, y)
+    plt.show()
+##-----------------------------------------------------------------##
 def eng_calculator(position,velocity,mass,g):
     #KE=0.5*m*v^2
     eng_kinetic = 0.5 * mass * np.sum(velocity**2)
@@ -86,10 +98,10 @@ def test_function():
  	    time += dt
     #return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
     getTrajectFile(time_list,pos_x_list,pos_y_list)
-    plt.figure()
-    plt.plot(pos_x_list, pos_y_list)
-    plt.show()
-    	
+    
+    #plotting(pos_x_list, pos_y_list)
+    plot_eng_vs_time(time_list, eng_tot_list, eng_kinetic_list, eng_poten_list)
+    
     	
 ##-----------------------------------------------------------------------##
 def display_lists(data_arr):
