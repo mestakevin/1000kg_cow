@@ -85,7 +85,7 @@ def test_function():
  	    
  	    time += dt
     #return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
-  
+    getTrajectFile(time_list,pos_x_list,pos_y_list)
     plt.figure()
     plt.plot(pos_x_list, pos_y_list)
     plt.show()
@@ -97,12 +97,12 @@ def display_lists(data_arr):
     print("Time(s)  Position(x,y) Velocity(Vx,Vy) Energy(KE, PE, TE) ")
 
 ##-----------------------------------------------------------------------##
-def getTrajectFile(time_list, x_list, y_list)
+def getTrajectFile(time_list, x_list, y_list):
     file = open("KMS_Trajectory.txt", 'w')
     file.write("Time   X    Y")
-    for i in length(time_list)
+    for i in length(time_list):
         file.write(time_list[i],"\t", x_list[i], "\t", y_list[i], "\n")
-
+    
 ##-----------------------------------------------------------------------##
 test_function()
 ##-----------------------------------------------------------------------##
