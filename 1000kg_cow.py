@@ -55,17 +55,15 @@ def test_function():
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
     
-    time_list   = []
-    pos_x_list  = []
-    pos_y_list  = []
-    vel_x_list  = []
-    vel_y_list  = []
-    eng_tot_x_list = []
-    eng_tot_y_list = []
-    eng_kinetic_x_list = []
-    eng_kinetic_y_list = []
-    eng_poten_x_list = []
-    eng_poten_Y_list = []
+    time_list        = []
+    pos_x_list       = []
+    pos_y_list 	     = []
+    vel_x_list       = []
+    vel_y_list       = []
+    eng_tot_list     = []
+    eng_kinetic_list = []
+    eng_poten_list   = []
+
     
     while position[1] > 0.0:
  	
@@ -79,12 +77,9 @@ def test_function():
  	    pos_y_list.append(position[1])
  	    vel_x_list.append(velocity[0])
  	    vel_y_list.append(velocity[1])
- 	    eng_tot_x_list.append(eng_tot[0])
- 	    eng_tot_x_list.append(eng_tot[1])
- 	    eng_kinetic_x_list.append(eng_kinetic[0])
- 	    eng_kinetic_y_list.append(eng_kinetic[1])
- 	    eng_poten_x_list.append(eng_poten[0])
- 	    eng_poten_y_list.append(eng_poten[1])
+ 	    eng_tot_list.append(eng_tot)
+ 	    eng_kinetic_list.append(eng_kinetic)
+ 	    eng_poten_list.append(eng_poten)
  	    
  	    time_list.append(time)
  	    
