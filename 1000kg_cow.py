@@ -100,7 +100,7 @@ def display_lists(data_arr):
 def getTrajectFile(time_list, x_list, y_list):
     file = open("KMS_Trajectory.txt", 'w')
     file.write("Time   X    Y")
-    for i in length(time_list):
+    for i in len(time_list):
         file.write(time_list[i],"\t", x_list[i], "\t", y_list[i], "\n")
     
 ##-----------------------------------------------------------------------##
