@@ -1,7 +1,7 @@
 #this is a 1000kg cow
 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 ##-----------------------------------------------------------------##
 def eng_calculator(position,velocity,mass,g):
@@ -55,10 +55,17 @@ def test_function():
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
     
-    time_list = []
-    pos_list = []
-    vel_list = []
-    eng_list = []
+    time_list   = []
+    pos_x_list  = []
+    pos_y_list  = []
+    vel_x_list  = []
+    vel_y_list  = []
+    eng_tot_x_list = []
+    eng_tot_y_list = []
+    eng_kinetic_x_list = []
+    eng_kinetic_y_list = []
+    eng_poten_x_list = []
+    eng_poten_Y_list = []
     
     while position[1] > 0.0:
  	
@@ -66,18 +73,27 @@ def test_function():
  	    velocity, position = curr_pos_vel_calc(position,velocity,f_tot,mass,dt)
  	    eng_kinetic, eng_poten, eng_tot = eng_calculator(position,velocity,mass,g)
  	    
- 	    print(time, '\t',position,'\t', velocity,'\t', eng_kinetic,'\t', eng_poten,'\t', eng_tot,'\n')
+ 	    #print(time, '\t',position,'\t', velocity,'\t', eng_kinetic,'\t', eng_poten,'\t', eng_tot,'\n')
  	    	
- 	    pos_list.append(position)
- 	    vel_list.append(velocity)
- 	    eng_list.append(eng_tot)
+ 	    pos_x_list.append(position[0])
+ 	    pos_y_list.append(position[1])
+ 	    vel_x_list.append(velocity[0])
+ 	    vel_y_list.append(velocity[1])
+ 	    eng_tot_x_list.append(eng_tot[0])
+ 	    eng_tot_x_list.append(eng_tot[1])
+ 	    eng_kinetic_x_list.append(eng_kinetic[0])
+ 	    eng_kinetic_y_list.append(eng_kinetic[1])
+ 	    eng_poten_x_list.append(eng_poten[0])
+ 	    eng_poten_y_list.append(eng_poten[1])
+ 	    
  	    time_list.append(time)
  	    
  	    time += dt
     #return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
-    
-    #for row in eng_list:
-    	#print(row)
+  
+    plt.figure()
+    plt.plot(pos_x_list, pos_y_list)
+    plt.show()
     	
     	
 ##-----------------------------------------------------------------------##
