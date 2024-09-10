@@ -112,4 +112,7 @@ def getTrajectFile(time_list, x_list, y_list):
 ##-----------------------------------------------------------------------##
 test_function()
 ##-----------------------------------------------------------------------##
+plt.plot(eng_calculator ,)
 
+plt.xlabel("Time(s)")
+plt.ylabel("Energies(J)")
