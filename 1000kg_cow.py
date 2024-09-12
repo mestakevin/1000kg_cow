@@ -57,12 +57,12 @@ def tot_force_vec(velocity,mass,g,wind_res_cons):
 def test_function():
     #Inital conditions
     mass          = 1000 	#kg
-    g             = 9.8 	#m/s^2
-    init_pos_cow  = [0,100] 
-    init_vel_cow  = [10,10]
-    wind_res_cons = 1.0
-    time	  = 0.0
-    dt            = 0.01
+    g             = 9.81 	#m/s^2
+    init_pos_cow  = [0,1000] 
+    init_vel_cow  = [1,100]
+    wind_res_cons = 0.0
+    time	      = 0.0
+    dt            = 0.001
 
     position = np.array(init_pos_cow)
     velocity = np.array(init_vel_cow)
@@ -99,18 +99,21 @@ def test_function():
     #return np.array(time_list), np.array(pos_list), np.array(vel_list), np.array(eng_list)
     getTrajectFile(time_list,pos_x_list,pos_y_list)
     
-    #plotting(pos_x_list, pos_y_list)
-    plot_eng_vs_time(time_list, eng_tot_list, eng_kinetic_list, eng_poten_list)
-    
-    	
-##-----------------------------------------------------------------------##
-def display_lists(data_arr):
+    plt.figure()
+    plt.plot(pos_x_list, pos_y_list)
+    plt.show()
 
-    print("Time(s)  Position(x,y) Velocity(Vx,Vy) Energy(KE, PE, TE) ")
+    plt.figure()
+    plt.plot(time_list,eng_poten_list, label='Potential Energy')
+    plt.plot(time_list,eng_kinetic_list, label='Kinetic Energy')
+    plt.plot(time_list,eng_tot_list, label='Total Energy')
+    plt.legend()
+    plt.show()
+    	
 
 ##-----------------------------------------------------------------------##
 def getTrajectFile(time_list, x_list, y_list):
-    file = open("KMS_Trajectory.txt", 'w')
+    file = open("KMS_Trajectory_Drag_Free.txt", 'w')
     file.write("Time   X    Y")
     file.write("\n")
     for i in range(0,len(time_list)):
@@ -124,7 +127,3 @@ def getTrajectFile(time_list, x_list, y_list):
 ##-----------------------------------------------------------------------##
 test_function()
 ##-----------------------------------------------------------------------##
-plt.plot(, )
-
-plt.xlabel("Time(s)")
-plt.ylabel("Energies(J)")
